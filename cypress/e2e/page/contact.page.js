@@ -30,6 +30,16 @@ class Contact {
         cy.get(this.msgField).invoke('val', message)
         cy.get(this.msgBtn).click()
     }
+    sendContactMsg(firstname, lastname, email, subject, message) {
+        cy.get(this.contactBtn).click()
+        cy.get(this.firstNameField).type(firstname)
+        cy.get(this.lastNameField).type(lastname)
+        cy.get(this.emailField).type(email)
+        cy.get(this.subjectField).type(subject)
+        cy.get(this.msgField).type(message)
+        cy.get(this.msgBtn).click({force: true})
+        //cy.get(this.popUpMsg).should('be.visible')
+    }
     emailUs() {
         cy.get(this.contactBtn).click()
         cy.get(this.emailBtn).should('be.visible')
