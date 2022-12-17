@@ -72,7 +72,7 @@ class Product {
         //cy.get(this.contShopBtn).click()
         cy.get(this.homeBtn).click({ force: true })
         //cy.get(this.contShopBtn).click()
-        cy.get(this.itemName2).click()
+        cy.get(this.itemName2).click({ force:true })
         cy.get(this.cartBtn).should('be.visible')
         cy.get(this.cartBtn).click()
         cy.get(this.contShopBtn).click()
