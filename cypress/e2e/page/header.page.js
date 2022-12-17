@@ -9,6 +9,8 @@ class Header {
     get signOutBtn() { return ('#top-sign-out') }
 
     get cartOpt() { return ('#top-cart') }
+    get cartContent() {return ('.snipcart-cart__content')}
+    
     //#endregion
 
     //#region Methods
@@ -39,7 +41,7 @@ class Header {
 
     cart() {
         cy.get(this.cartOpt).should('be.visible')
-        cy.get(this.cartOpt).click()
+        cy.get(this.cartOpt).click({force: true})
     }
     //#endregion
 }
