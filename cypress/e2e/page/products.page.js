@@ -22,7 +22,7 @@ class Product {
     get detailedCartBtn() { return ('button.snipcart-button-link') }
     get cartSummaryBtn() { return ('#reset') }
     get cartHeader() { return ('.snipcart-cart-header__options') }
-    get contShopBtn() { return ('.snipcart-modal__close-title.snipcart__font--std') }
+    get contShopBtn() { return ('.snipcart-modal__close-title') }
     get homeBtn() { return ('#top-home') }
     get removeBtn() { return ("button[title='Remove item']") }
     get emptyCart() { return (".snipcart-empty-cart") }
@@ -53,10 +53,26 @@ class Product {
         //cy.get('#top-cart').should('be.visible')
         //cy.get('.snipcart-modal__close-title.snipcart__font--std').should('be.visible')
     }
+    // newAddToCart(){
+    //     cy.get(this.)
+    // }
     removeFrmCart() {
+        cy.get(this.itemName1).scrollIntoView()
         cy.get(this.itemName1).click()
         cy.get(this.cartBtn).should('be.visible')
-        cy.get(this.cartBtn).click()
+        cy.get(this.cartBtn).click({force: true})
+        cy.get('#top-cart').should('be.visible')
+        //cy.get('#top-cart').click()
+        cy.get(this.removeBtn).should('be.visible')
+        //cy.get(this.removeBtn).click()
+        cy.get(this.decQtyBtn).click()
+
+    }
+    removeItemFrmCart() {
+        // cy.get(this.itemName1).scrollIntoView()
+        // cy.get(this.itemName1).click()
+        cy.get(this.cartBtn).should('be.visible')
+        cy.get(this.cartBtn).click({force: true})
         cy.get('#top-cart').should('be.visible')
         //cy.get('#top-cart').click()
         cy.get(this.removeBtn).should('be.visible')
@@ -124,9 +140,9 @@ class Product {
     }
     addSingleItem(position) {
         const itemaddtocartbtn = `${this.getProdId(position)} ${this.cartBtn}`
-        cy.get(itemaddtocartbtn).click()
+        cy.get(itemaddtocartbtn).click({force: true})
         cy.get(this.cartBtn).should('be.visible')
-        //cy.get(this.cartBtn).click()
+        cy.get(this.cartBtn).click()
     }
     getProdId(position) {
         return `${this.productId}${position}`

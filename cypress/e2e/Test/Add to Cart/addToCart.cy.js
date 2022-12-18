@@ -31,6 +31,7 @@ describe('These tests executes the add to cart scenarios', () => {
         cy.navigateToFullUrl('/products')
         productsPage.addSingleItem(0)
         cy.navigateToFullUrl('/products')
+        cy.wait(1000)
         productsPage.addSingleItem(0)
 
         //Assert that multiple products were added to the cart

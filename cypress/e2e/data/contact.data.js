@@ -24,7 +24,7 @@ module.exports = [
         email: 'vanessa.russell@coolcorp.com',
         subject: 'Test3',
         message: 'This is a test contact us message',
-        submitted: true
+        submitted: false
     },
     {
         title: 'Verify that user can not submit contact information without required field [message]',
